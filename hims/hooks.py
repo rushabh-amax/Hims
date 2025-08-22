@@ -25,8 +25,8 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/hims/css/hims.css"
-# app_include_js = "/assets/hims/js/hims.js"
+app_include_css = ["theme.bundle.css" , "assets/hims/css/css-rtl/translatons.ar_eg.css"]
+app_include_js = ["theme.bundle.js"]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/hims/css/hims.css"
@@ -175,9 +175,14 @@ app_license = "mit"
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "hims.event.get_events"
+# 	"frappe.core.doctype.user.user.switch_theme": "theme.override.switch_theme"
 # }
-#
+
+override_whitelisted_methods = {
+    "frappe.core.doctype.user.user.switch_theme": "hims.override.switch_theme"
+}
+
+
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
@@ -241,4 +246,25 @@ app_license = "mit"
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
+
+
+
+# fixtures=[
+#     {"dt": {"Property Setter"},
+#      "filters": [
+#          ["doc_type","in",("User")],
+#          ["field_name" , "in" , ("desk_theme")]
+#      ]}
+# ]
+
+
+fixtures = [
+    {
+        "dt": "Property Setter",
+        "filters": [
+            ["doc_type", "=", "User"],
+            ["field_name", "=", "desk_theme"]
+        ]
+    }
+]
 
