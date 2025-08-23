@@ -23,13 +23,8 @@ frappe.ui.ThemeSwitcher = class CustomThemeSwitcher extends frappe.ui.ThemeSwitc
                 {
                     name:"hims",
                     label: "hims",
-                    info: "Purple Theme"
-                },
-			    {
-                    name:"ayush",
-                    label: "ayush",
-                    info: "ayush Theme"
-                },
+                    info: "hims Theme"
+                }
               
 			];
 

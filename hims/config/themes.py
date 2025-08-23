@@ -1,5 +1,5 @@
 # hims/config/themes.py
-
+# we didn't use this file
 CUSTOM_THEMES = [
     "hims","ayush"
     # in future: "ocean", "matrix", etc
