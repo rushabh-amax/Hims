@@ -20,6 +20,7 @@ h1,h2,h3,h4,h5,h6{
 :root{
     --navbar_searchbar_radius:1em;
     --body_clr:#fefcf9;
+    --control-bg: #eef5ff;
     
     
 }

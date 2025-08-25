@@ -1,6 +1,6 @@
 @import "https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
 
-/* ../../../../../../tmp/tmp-140189-vXlANWbwfx2Z/198e054866c0/hims.bundle.css */
+/* ../../../../../../tmp/tmp-146230-rkeGo8AaMPLK/198e05b5cf01/hims.bundle.css */
 * {
   font-family: "Poppins", sans-serif;
 }
@@ -15,6 +15,7 @@ h6 {
 :root {
   --navbar_searchbar_radius:1em;
   --body_clr:#fefcf9;
+  --control-bg: #eef5ff;
 }
 body {
   background: var(--body_clr) !important;
@@ -437,7 +438,7 @@ select,
   color: var(--primary_clr) !important;
 }
 
-/* ../../../../../../tmp/tmp-140189-vXlANWbwfx2Z/198e05486872/login.bundle.css */
+/* ../../../../../../tmp/tmp-146230-rkeGo8AaMPLK/198e05b5d0e3/login.bundle.css */
 [role=search],
 .dropdown-notifications,
 .dropdown-help,
@@ -523,5 +524,5 @@ body[frappe-session-status=logged-out][data-path=login] .page-card-head h4 {
   margin-bottom: 1em;
 }
 
-/* ../../../../../../tmp/tmp-140189-vXlANWbwfx2Z/hims/hims/public/css/theme.bundle.css */
-/*# sourceMappingURL=theme.bundle.NIRZLMAS.css.map */
+/* ../../../../../../tmp/tmp-146230-rkeGo8AaMPLK/hims/hims/public/css/theme.bundle.css */
+/*# sourceMappingURL=theme.bundle.BI5FIFIS.css.map */
