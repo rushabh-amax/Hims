@@ -1,6 +1,6 @@
 @import "https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
 
-/* ../../../../../../tmp/tmp-149017-P1U3D6W59U4V/198d62877d77/hims.bundle.css */
+/* ../../../../../../tmp/tmp-140189-4jPA2aTPm840/hims/hims/public/css/hims.bundle.css */
 * {
   font-family: "Poppins", sans-serif;
 }
@@ -27,11 +27,12 @@ body {
   --_default-txt-color:black;
   --_default-bg-color-f_h:#a1c3f1;
   --_default-txt-color-f_h:#EEF5FF;
+  --disabled-control-bg:whitesmoke;
   --cancel:
     255,
     45,
     45;
-  --filter_Solie_Color:#F4D160;
+  --filter_Solie_Color:#caa93a;
 }
 .navbar .vertical-bar {
   display: none !important;
@@ -40,7 +41,7 @@ body {
   gap: .5em;
 }
 .navbar .navbar-nav li {
-  margin-left: unset !important;
+  margin-right: unset !important;
 }
 [data-original-title=Notifications] {
   height: 50px;
@@ -58,7 +59,7 @@ body {
 [role=search],
 [data-theme=light] [role=search],
 [data-theme=dark] [role=search] {
-  margin-left: auto;
+  margin-right: auto;
   display: flex !important;
   align-items: center;
   justify-content: end;
@@ -69,6 +70,7 @@ body {
 .like-disabled-input {
   background-color: var(--disabled-control-bg);
   filter: grayscale(.5);
+  line-height: 2.3 !important;
 }
 .frappe-control[data-fieldtype=Data] .control-input,
 .control-value input {
@@ -98,7 +100,7 @@ select,
   height: 100%;
 }
 .search-bar {
-  margin-left: auto !important;
+  margin-right: auto !important;
   margin: unset;
 }
 .search-bar .awesomplete input {
@@ -120,23 +122,28 @@ select,
 .dropdown-navbar-user button {
   height: 100%;
   width: 100%;
-  border-radius: inherit;
+  border-radius: 15px;
   padding: 0;
 }
 .avatar .standard-image {
-  border-radius: inherit;
+  border-radius: 15px;
   height: 100%;
   width: 100%;
 }
 .navbar-expand .navbar-nav .avatar-medium {
   height: 100%;
   width: 100%;
-  border-radius: inherit;
+  border-radius: 15px;
 }
 .navbar-expand .navbar-nav .avatar-frame {
   height: 100%;
   width: 100%;
-  border-radius: inherit;
+  border-radius: 15px;
+}
+.page-form .filter-selector .btn-group .filter-label {
+  --text-color:var(var(--_primary-bg-color)) !important;
+  --control-bg:whitesmoke;
+  border-radius: 7px;
 }
 .btn-sm,
 .btn-xs {
@@ -220,6 +227,10 @@ select,
 select span {
   line-height: 1.5 !important;
 }
+[data-theme=hims] .like-disabled-input {
+  background-color: var(--disabled-control-bg);
+  filter: grayscale(.5);
+}
 .indicator-pill,
 .indicator-pill-right {
   height: -moz-fit-content !important;
@@ -233,8 +244,9 @@ select span {
   padding-inline: .25em;
 }
 [data-page-route=Workspaces] .layout-main .layout-side-section {
-  padding-right: 15px;
+  padding-left: 15px;
   width: 200px;
+  overflow-x: hidden;
 }
 .standard-actions {
   height: 40px;
@@ -245,7 +257,7 @@ select span {
 }
 .sidebar-item-container {
   margin-block: .25em;
-  margin-left: 0px;
+  margin-right: 0px;
 }
 .sidebar-item-container .desk-sidebar-item {
   padding: 1em 0em;
@@ -255,13 +267,13 @@ select span {
 }
 .desk-sidebar-item:has(+ .sidebar-child-item) .drop-icon {
   position: absolute;
-  right: 0;
+  left: 0;
   top: 50%;
   transform: translateY(-50%);
 }
 .standard-sidebar-item.selected,
 .standard-sidebar-item.active.selected {
-  background: #5791c71f !important;
+  background: #5791c7right 1 top 50%f !important;
   color: var(--active_txt_clr);
   overflow: unset;
 }
@@ -294,7 +306,7 @@ select span {
   border-radius: .5em;
   font-size: 1.35em;
   cursor: pointer;
-  margin-left: .75em !important;
+  margin-right: .75em !important;
   background: transparent !important;
 }
 .custom-sidebar-toggle:hover {
@@ -353,7 +365,7 @@ select,
 }
 .page-actions {
   align-items: center;
-  padding-right: 1em;
+  padding-left: 1em;
 }
 @media (max-width:990px) {
   .custom-sidebar-toggle {
@@ -385,7 +397,7 @@ select,
 @media (max-width: 991px) {
   .layout-side-section {
     position: absolute;
-    left: 0;
+    right: 0;
   }
 }
 @media (max-width: 991px) {
@@ -394,92 +406,34 @@ select,
     display: block;
   }
 }
-
-/* ../../../../../../tmp/tmp-149017-P1U3D6W59U4V/198d628798e12/login.bundle.css */
-[role=search],
-.dropdown-notifications,
-.dropdown-help,
-.dropdown-navbar-user {
-  display: inline-block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+.number-widget-box .number {
+  --text-2xl: var(--text-3xl);
 }
-body[frappe-session-status=logged-out][data-path=login] {
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  background: url(https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat center center !important;
-  background-size: cover !important;
+[data-theme=hims] .onboarding-step svg.es-icon {
+  --icon-stroke: var(--success);
+  color: var(--icon-stroke) !important;
 }
-body[frappe-session-status=logged-out] .navbar-light {
-  border-bottom: 1px solid #e2e2e2;
-  background: white;
-  width: 100vw;
-  height: 80px;
-  position: fixed;
-  top: 0;
-  left: 0;
+[data-theme=hims] .widget.onboarding-widget-box .widget-body .onboarding-step.skipped {
+  color: #ff6565;
+  background-color: #ffd2d2;
 }
-body[frappe-session-status=logged-out] .page-card-actions .btn.btn-sm.btn-primary.btn-block.btn-login,
-body[frappe-session-status=logged-out] .page-card-actions .btn-forgot {
-  height: 40px;
-  background: #0d6efd;
-  margin-top: .25em;
+[data-theme=hims] .widget.onboarding-widget-box .widget-body .onboarding-step.complete {
+  color: #036100;
+  background-color: #c9e0c8;
 }
-body[frappe-session-status=logged-out] .login-divider {
-  display: none;
+[data-theme=hims] .onboarding-step.skipped svg.es-icon {
+  --icon-stroke: #e03636 !important;
+  color: var(--icon-stroke) !important;
 }
-body[frappe-session-status=logged-out] .btn-login-with-email-link {
-  background: transparent !important;
-  text-align: right;
+[data-theme=hims] .widget-control.indicator-pill.no-indicator-dot {
+  position: absolute;
+  bottom: 0;
+  left: .25em;
+  scale: .85;
+  z-index: 1;
 }
-body[frappe-session-status=logged-out][data-path=login] .for-login,
-body[frappe-session-status=logged-out] .for-login-with-email-link,
-body[frappe-session-status=logged-out] .for-forgot {
-  max-width: 400px;
-  margin: auto;
-  padding: 2rem;
-  border-radius: 1em !important;
-  background: rgb(255, 255, 255);
+[data-theme=vasani_theme] #nav-modules-link {
+  font-weight: 500;
+  color: var(--primary_clr) !important;
 }
-body[frappe-session-status=logged-out][data-path=login] .web-footer {
-  display: none;
-}
-body[frappe-session-status=logged-out][data-path=login] .form-group input {
-  flex: 1;
-}
-body[frappe-session-status=logged-out][data-path=login] .form-group > div,
-body[frappe-session-status=logged-out] .email-field,
-body[frappe-session-status=logged-out] .for-forgot .email-field {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row-reverse;
-  gap: .5em;
-  width: 100%;
-  margin: 0em auto;
-}
-body[frappe-session-status=logged-out][data-path=login] .form-group > div > svg {
-  order: 1;
-}
-body[frappe-session-status=logged-out] .navbar-light {
-  display: none !important;
-}
-body[frappe-session-status=logged-out][data-path=login] .form-group > div > .text-muted {
-  order: -1;
-}
-body[frappe-session-status=logged-out][data-path=login] .page-card-head {
-  display: grid;
-  place-items: center;
-  gap: 0em;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-body[frappe-session-status=logged-out][data-path=login] .page-card-head h4 {
-  font-size: 1.5rem;
-  margin-top: .5em;
-  margin-bottom: 1em;
-}
-
-/* ../../../../../../tmp/tmp-149017-P1U3D6W59U4V/hims/hims/public/css/theme.bundle.css */
-/*# sourceMappingURL=theme.bundle.GAYAFGVN.css.map */
+/*# sourceMappingURL=hims.bundle.ZRSUO6FZ.css.map */

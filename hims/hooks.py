@@ -51,7 +51,6 @@ app_include_js = ["theme.bundle.js"]
 # Svg Icons
 # ------------------
 # include app icons in desk
-# app_include_icons = "hims/public/icons.svg"
 
 # Home Pages
 # ----------
@@ -178,10 +177,17 @@ app_include_js = ["theme.bundle.js"]
 # 	"frappe.core.doctype.user.user.switch_theme": "theme.override.switch_theme"
 # }
 
+
+# path to theme-switch overide via custom app
 override_whitelisted_methods = {
     "frappe.core.doctype.user.user.switch_theme": "hims.override.switch_theme"
 }
 
+# path to icons.svg override custom app
+# override_icon = {
+#     "timeless": "/assets/hims/icons/icons.svg"
+# }
+# app_include_icons = "hims/public/icons.svg"
 
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,

@@ -21,6 +21,7 @@ h1,h2,h3,h4,h5,h6{
     --navbar_searchbar_radius:1em;
     --body_clr:#fefcf9;
     
+    
 }
 
 body{
@@ -39,12 +40,15 @@ body{
    --_default-bg-color-f_h:#a1c3f1;
    --_default-txt-color-f_h:#EEF5FF;
 
+
+   --disabled-control-bg:whitesmoke;
+
    
    
    
    --cancel: 255, 45, 45; /* rgb values */
   /* color's */
-  --filter_Solie_Color:#F4D160;
+  --filter_Solie_Color:#caa93a;
 }
 
 /* ===================================================================================
@@ -92,7 +96,8 @@ display: none !important;
   .like-disabled-input {
 
     background-color: var(--disabled-control-bg);
-        filter: grayscale(.5);
+    filter: grayscale(.5);
+    line-height: 2.3 !important;
 }
  .frappe-control[data-fieldtype=Data] .control-input, .control-value input {
   height:40px !important;
@@ -147,30 +152,35 @@ select,
  .dropdown-navbar-user button{
     height: 100%;
     width: 100%;
-    border-radius: inherit;
+    border-radius: 15px;
+
     padding: 0;
 }
  .avatar .standard-image {
-    border-radius: inherit;
+    border-radius: 15px;
     height: 100%;
     width: 100%;
 }
  .navbar-expand .navbar-nav .avatar-medium {
     height: 100%;
     width: 100%;
-    border-radius: inherit;
+    border-radius: 15px;
 }
 
  .navbar-expand .navbar-nav .avatar-frame{
     height: 100%;
     width: 100%;
-    border-radius: inherit;
+    border-radius: 15px;
 
 }
 
 /* btn */
 
-
+.page-form .filter-selector .btn-group .filter-label {
+  --text-color:var(var(--_primary-bg-color)) !important;
+  --control-bg:whitesmoke;
+    border-radius: 7px;
+}
 .btn-sm,
 .btn-xs{
     height: fit-content !important;
@@ -258,8 +268,11 @@ select,
 select span{
     line-height: 1.5 !important;
 }
+[data-theme="hims"]  .like-disabled-input {
 
-
+    background-color: var(--disabled-control-bg);
+        filter: grayscale(.5);
+}
 
 /* indicator */
 .indicator-pill, .indicator-pill-right{
@@ -280,6 +293,7 @@ select span{
 [data-page-route=Workspaces] .layout-main .layout-side-section {
         padding-right: 15px;
         width: 200px;
+        overflow-x: hidden;
 }
 .standard-actions{
   height: 40px;
@@ -317,6 +331,7 @@ select span{
   background:#5791c71f !important;
   color: var(--active_txt_clr);
       overflow: unset;
+      
 }
 [data-theme="hims"] .standard-sidebar-item:hover:not(.standard-sidebar-item.selected:hover){
   scale: .95;
@@ -507,3 +522,48 @@ select,
         display: block;
     }
 }
+
+
+.number-widget-box .number{
+  --text-2xl: var(--text-3xl);
+  /* text-align: center; */
+  /* margin-inline: auto; */
+}
+
+
+
+
+/* ==========================================================================
+ onboarding styl's 
+ ===========================================================================*/
+[data-theme="hims"] .onboarding-step svg.es-icon{
+  --icon-stroke: var(--success);
+   color: var(--icon-stroke) !important;
+}
+
+[data-theme="hims"] .widget.onboarding-widget-box .widget-body .onboarding-step.skipped {
+    color: #ff6565;
+    background-color: #ffd2d2;
+}
+[data-theme="hims"] .widget.onboarding-widget-box .widget-body .onboarding-step.complete{
+   color: #036100;
+    background-color: #c9e0c8;
+}
+[data-theme="hims"] .onboarding-step.skipped svg.es-icon {
+    --icon-stroke: #e03636 !important;
+    color: var(--icon-stroke) !important; 
+}
+[data-theme="hims"] .widget-control.indicator-pill.no-indicator-dot{
+  position: absolute;
+  bottom: 0;
+  right: .25em;
+  scale: .85;
+  z-index: 1;
+}
+[data-theme="vasani_theme"] #nav-modules-link {
+  font-weight: 500;
+  color: var(--primary_clr) !important;
+}
+/* [data-theme="vasani_theme"] #nav-modules-link:hover {
+  background-color: red;
+} */
