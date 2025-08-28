@@ -1,6 +1,6 @@
 @import "https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
 
-/* ../../../../../../tmp/tmp-146230-06sE0TQsjExy/hims/hims/public/css/hims.bundle.css */
+/* ../../../../../../tmp/tmp-5518-QtK6VCFk2g2Z/hims/hims/public/css/hims.bundle.css */
 * {
   font-family: "Poppins", sans-serif;
 }
@@ -52,7 +52,7 @@ body {
   transition: 250ms ease all;
 }
 [data-original-title=Notifications]:hover {
-  background: var(--active_txt_clr);
+  background: var(--_active_txt_clr);
 }
 .navbar {
   height: 90px;
@@ -433,8 +433,11 @@ select,
   scale: .85;
   z-index: 1;
 }
-[data-theme=vasani_theme] #nav-modules-link {
+[data-theme=hims] #nav-modules-link {
   font-weight: 500;
   color: var(--primary_clr) !important;
 }
-/*# sourceMappingURL=hims.bundle.A6M2P3UW.css.map */
+.form-sidebar-stats {
+  flex-wrap: wrap !important;
+}
+/*# sourceMappingURL=hims.bundle.7MKUYYXB.css.map */

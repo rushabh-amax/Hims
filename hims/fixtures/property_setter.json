@@ -11,7 +11,7 @@
   "module": null,
   "name": "User-desk_theme-options",
   "property": "options",
-  "property_type": "Text",
+  "property_type": "Text",  
   "row_name": null,
   "value": "Light\nDark\nAutomatic\nhims"
  }
