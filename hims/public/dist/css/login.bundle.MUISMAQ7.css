@@ -1,4 +1,4 @@
-/* ../../../../../../tmp/tmp-5518-QtK6VCFk2g2Z/hims/hims/public/css/login.bundle.css */
+/* ../../../../../../tmp/tmp-216638-G97i7BX8rxfq/hims/hims/public/css/login.bundle.css */
 body[frappe-session-status=logged-out] .page-card-body {
   margin-bottom: .5em;
 }
@@ -25,7 +25,7 @@ body[frappe-session-status=logged-out] .navbar-light {
   height: 80px;
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
 }
 body[frappe-session-status=logged-out] .page-card-actions .btn.btn-sm.btn-primary.btn-block.btn-login,
 body[frappe-session-status=logged-out] .page-card-actions .btn-forgot,
@@ -39,7 +39,7 @@ body[frappe-session-status=logged-out] .password-field {
 }
 body[frappe-session-status=logged-out] .custom-toggle-password {
   position: absolute !important;
-  left: 10px !important;
+  right: 10px !important;
 }
 body[frappe-session-status=logged-out][data-path=login] .for-login,
 body[frappe-session-status=logged-out] .for-login-with-email-link,
@@ -100,4 +100,4 @@ body[frappe-session-status=logged-out][data-path=login] .page-card-head h4 {
 body[frappe-session-status=logged-out] .app-logo {
   width: 133px !important;
 }
-/*# sourceMappingURL=login.bundle.ZUSIAG7T.css.map */
+/*# sourceMappingURL=login.bundle.MUISMAQ7.css.map */

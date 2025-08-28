@@ -1,6 +1,6 @@
 @import "https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
 
-/* ../../../../../../tmp/tmp-58745-l31hzixsVAV7/198ef48101a1/hims.bundle.css */
+/* ../../../../../../tmp/tmp-216638-G97i7BX8rxfq/198f0a9d4e91/hims.bundle.css */
 * {
   font-family: "Poppins", sans-serif;
 }
@@ -440,8 +440,11 @@ select,
 .form-sidebar-stats {
   flex-wrap: wrap !important;
 }
+.list-sidebar.overlay-sidebar {
+  display: none !important;
+}
 
-/* ../../../../../../tmp/tmp-58745-l31hzixsVAV7/198ef4810303/login.bundle.css */
+/* ../../../../../../tmp/tmp-216638-G97i7BX8rxfq/198f0a9d4ff3/login.bundle.css */
 body[frappe-session-status=logged-out] .page-card-body {
   margin-bottom: .5em;
 }
@@ -544,5 +547,5 @@ body[frappe-session-status=logged-out] .app-logo {
   width: 133px !important;
 }
 
-/* ../../../../../../tmp/tmp-58745-l31hzixsVAV7/hims/hims/public/css/theme.bundle.css */
-/*# sourceMappingURL=theme.bundle.YS5HCN5E.css.map */
+/* ../../../../../../tmp/tmp-216638-G97i7BX8rxfq/hims/hims/public/css/theme.bundle.css */
+/*# sourceMappingURL=theme.bundle.X6XYS4TU.css.map */
