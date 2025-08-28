@@ -26,7 +26,18 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 app_include_css = ["theme.bundle.css" , "assets/hims/css/css-rtl/translatons.ar_eg.css"]
-app_include_js = ["theme.bundle.js"]
+app_include_js = ["theme.bundle.js" , "assets/hims/js/login.bundle.js" ]
+
+
+# hooks.py
+# app_include_js = [
+#     "/assets/hims/js/login.bundle.js"
+# ]
+web_include_js = [
+    "theme.bundle.js",
+    "assets/hims/js/login.bundle.js"
+]
+
 
 # include js, css files in header of web template
 # web_include_css = "/assets/hims/css/hims.css"

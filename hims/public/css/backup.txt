@@ -573,7 +573,3 @@ select,
 .form-sidebar-stats{
   flex-wrap: wrap !important;
 }
-
-.list-sidebar.overlay-sidebar{
-display: none !important;
-}

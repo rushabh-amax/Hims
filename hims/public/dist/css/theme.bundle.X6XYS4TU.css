@@ -1,6 +1,6 @@
 @import "https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
 
-/* ../../../../../../tmp/tmp-146230-rkeGo8AaMPLK/hims/hims/public/css/hims.bundle.css */
+/* ../../../../../../tmp/tmp-216638-G97i7BX8rxfq/198f0a9d4e91/hims.bundle.css */
 * {
   font-family: "Poppins", sans-serif;
 }
@@ -52,7 +52,7 @@ body {
   transition: 250ms ease all;
 }
 [data-original-title=Notifications]:hover {
-  background: var(--active_txt_clr);
+  background: var(--_active_txt_clr);
 }
 .navbar {
   height: 90px;
@@ -433,8 +433,119 @@ select,
   scale: .85;
   z-index: 1;
 }
-[data-theme=vasani_theme] #nav-modules-link {
+[data-theme=hims] #nav-modules-link {
   font-weight: 500;
   color: var(--primary_clr) !important;
 }
-/*# sourceMappingURL=hims.bundle.VING3Z4M.css.map */
+.form-sidebar-stats {
+  flex-wrap: wrap !important;
+}
+.list-sidebar.overlay-sidebar {
+  display: none !important;
+}
+
+/* ../../../../../../tmp/tmp-216638-G97i7BX8rxfq/198f0a9d4ff3/login.bundle.css */
+body[frappe-session-status=logged-out] .page-card-body {
+  margin-bottom: .5em;
+}
+[role=search],
+.dropdown-notifications,
+.dropdown-help,
+.dropdown-navbar-user {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+body[frappe-session-status=logged-out][data-path=login] {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: url(/assets/hims/images/background-img.jpg) no-repeat center center !important;
+  background-size: cover !important;
+  background-size: cover !important;
+}
+body[frappe-session-status=logged-out] .navbar-light {
+  border-bottom: 1px solid #e2e2e2;
+  background: white;
+  width: 100vw;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+body[frappe-session-status=logged-out] .page-card-actions .btn.btn-sm.btn-primary.btn-block.btn-login,
+body[frappe-session-status=logged-out] .page-card-actions .btn-forgot,
+body[frappe-session-status=logged-out] .page-card-actions .btn-login-with-email-link {
+  height: 40px;
+  background: #010042;
+  margin-top: .25em;
+}
+body[frappe-session-status=logged-out] .password-field {
+  position: relative;
+}
+body[frappe-session-status=logged-out] .custom-toggle-password {
+  position: absolute !important;
+  right: 10px !important;
+}
+body[frappe-session-status=logged-out][data-path=login] .for-login,
+body[frappe-session-status=logged-out] .for-login-with-email-link,
+body[frappe-session-status=logged-out] .for-forgot {
+  max-width: 450px;
+  width: 400px !important;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 1em !important;
+  background: rgb(255, 255, 255);
+}
+body[frappe-session-status=logged-out][data-path=login] .web-footer {
+  display: none;
+}
+body[frappe-session-status=logged-out][data-path=login] .form-group input,
+body[frappe-session-status=logged-out][data-path=login] #forgot_email,
+body[frappe-session-status=logged-out][data-path=login] #login_with_email_link_email {
+  flex: 1;
+  height: 40px !important;
+  background: #e9f2ff !important;
+}
+body[frappe-session-status=logged-out] .btn.btn-default {
+  background-color: #e9f2ff;
+  color: #000;
+}
+body[frappe-session-status=logged-out][data-path=login] .form-group > div,
+body[frappe-session-status=logged-out] .email-field,
+body[frappe-session-status=logged-out] .for-forgot .email-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  gap: .5em;
+  width: 100%;
+  margin: 0em auto;
+}
+body[frappe-session-status=logged-out][data-path=login] .form-group > div > svg {
+  order: 1;
+}
+body[frappe-session-status=logged-out] .navbar-light {
+  display: none !important;
+}
+body[frappe-session-status=logged-out][data-path=login] .form-group > div > .text-muted {
+  order: -1;
+}
+body[frappe-session-status=logged-out][data-path=login] .page-card-head {
+  display: grid;
+  place-items: center;
+  gap: 0em;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+body[frappe-session-status=logged-out][data-path=login] .page-card-head h4 {
+  font-size: 1.5rem;
+  margin-top: .5em;
+  margin-bottom: 1em;
+}
+body[frappe-session-status=logged-out] .app-logo {
+  width: 133px !important;
+}
+
+/* ../../../../../../tmp/tmp-216638-G97i7BX8rxfq/hims/hims/public/css/theme.bundle.css */
+/*# sourceMappingURL=theme.bundle.X6XYS4TU.css.map */

@@ -1,6 +1,6 @@
 @import "https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
 
-/* ../../../../../../tmp/tmp-146230-06sE0TQsjExy/hims/hims/public/css/hims.bundle.css */
+/* ../../../../../../tmp/tmp-216638-G97i7BX8rxfq/hims/hims/public/css/hims.bundle.css */
 * {
   font-family: "Poppins", sans-serif;
 }
@@ -42,7 +42,7 @@ body {
   gap: .5em;
 }
 .navbar .navbar-nav li {
-  margin-right: unset !important;
+  margin-left: unset !important;
 }
 [data-original-title=Notifications] {
   height: 50px;
@@ -52,7 +52,7 @@ body {
   transition: 250ms ease all;
 }
 [data-original-title=Notifications]:hover {
-  background: var(--active_txt_clr);
+  background: var(--_active_txt_clr);
 }
 .navbar {
   height: 90px;
@@ -60,7 +60,7 @@ body {
 [role=search],
 [data-theme=light] [role=search],
 [data-theme=dark] [role=search] {
-  margin-right: auto;
+  margin-left: auto;
   display: flex !important;
   align-items: center;
   justify-content: end;
@@ -101,7 +101,7 @@ select,
   height: 100%;
 }
 .search-bar {
-  margin-right: auto !important;
+  margin-left: auto !important;
   margin: unset;
 }
 .search-bar .awesomplete input {
@@ -245,7 +245,7 @@ select span {
   padding-inline: .25em;
 }
 [data-page-route=Workspaces] .layout-main .layout-side-section {
-  padding-left: 15px;
+  padding-right: 15px;
   width: 200px;
   overflow-x: hidden;
 }
@@ -258,7 +258,7 @@ select span {
 }
 .sidebar-item-container {
   margin-block: .25em;
-  margin-right: 0px;
+  margin-left: 0px;
 }
 .sidebar-item-container .desk-sidebar-item {
   padding: 1em 0em;
@@ -268,13 +268,13 @@ select span {
 }
 .desk-sidebar-item:has(+ .sidebar-child-item) .drop-icon {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
 }
 .standard-sidebar-item.selected,
 .standard-sidebar-item.active.selected {
-  background: #5791c7right 1 top 50%f !important;
+  background: #5791c71f !important;
   color: var(--active_txt_clr);
   overflow: unset;
 }
@@ -307,7 +307,7 @@ select span {
   border-radius: .5em;
   font-size: 1.35em;
   cursor: pointer;
-  margin-right: .75em !important;
+  margin-left: .75em !important;
   background: transparent !important;
 }
 .custom-sidebar-toggle:hover {
@@ -366,7 +366,7 @@ select,
 }
 .page-actions {
   align-items: center;
-  padding-left: 1em;
+  padding-right: 1em;
 }
 @media (max-width:990px) {
   .custom-sidebar-toggle {
@@ -398,7 +398,7 @@ select,
 @media (max-width: 991px) {
   .layout-side-section {
     position: absolute;
-    right: 0;
+    left: 0;
   }
 }
 @media (max-width: 991px) {
@@ -429,12 +429,18 @@ select,
 [data-theme=hims] .widget-control.indicator-pill.no-indicator-dot {
   position: absolute;
   bottom: 0;
-  left: .25em;
+  right: .25em;
   scale: .85;
   z-index: 1;
 }
-[data-theme=vasani_theme] #nav-modules-link {
+[data-theme=hims] #nav-modules-link {
   font-weight: 500;
   color: var(--primary_clr) !important;
 }
-/*# sourceMappingURL=hims.bundle.A6M2P3UW.css.map */
+.form-sidebar-stats {
+  flex-wrap: wrap !important;
+}
+.list-sidebar.overlay-sidebar {
+  display: none !important;
+}
+/*# sourceMappingURL=hims.bundle.AKJFHR2M.css.map */
