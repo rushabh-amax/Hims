@@ -10,7 +10,7 @@ frappe.pages['modules'].on_page_load = function (wrapper) {
     // Container for modules grid
     let container = $(`
         <div class="container mt-4">
-            <div class="row g-4" id="modules-container"></div>
+            <div class="d-flex align-content-start flex-wrap" style="gap:20px" id="modules-container"></div>
         </div>
     `).appendTo(page.body);
 
@@ -32,20 +32,20 @@ frappe.pages['modules'].on_page_load = function (wrapper) {
                 modules.forEach(mod => {
                     let modName = mod.label || mod.name;
                     let modIcon = mod.icon ;  // matches #icon-cube in Frappe
-                    let modRoute = mod.route || `workspace/${mod.name}`;
+                    let modRoute = mod.route || `/${mod.name}`;
 					// add this new cmt
 
                     // Create module card (like app selector)
                     let card = $(`
-                        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                            <div class="card app-card shadow-sm text-center h-100 border-0" style="cursor:pointer;">
-                                <div class="card-body d-flex flex-column align-items-center justify-content-center p-3">
-                                    <span class="sidebar-item-icon mb-2" item-icon="${modIcon}">
-                                        <svg class="icon icon-lg" aria-hidden="true">
+                        <div class="w-100px">
+                            <div class=" rounded card app-card text-center h-100 w-100 border-0" style="cursor:pointer;">
+                                <div class="card-body  d-flex flex-column align-items-center justify-content-center p-3">
+                                    <span class=" sidebar-item-icon module-icon mb-2" item-icon="${modIcon}">
+                                        <svg class="icon icon-xl" aria-hidden="true">
                                             <use href="#icon-${modIcon}"></use>
                                         </svg>
                                     </span>
-                                    <div class="app-title fw-medium">${modName}</div>
+                                    <div class="app-title fw-medium text-wrap-custom">${modName}</div>
                                 </div>
                             </div>
                         </div>
@@ -63,6 +63,8 @@ frappe.pages['modules'].on_page_load = function (wrapper) {
             } else {
                 $("#modules-container").html("<p class='text-muted'>No modules available</p>");
             }
+
+            
         })
         .catch(err => {
             console.error("Error fetching modules:", err);
