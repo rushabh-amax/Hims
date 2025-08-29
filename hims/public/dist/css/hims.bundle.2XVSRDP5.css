@@ -1,6 +1,6 @@
 @import "https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
 
-/* ../../../../../../tmp/tmp-216638-G97i7BX8rxfq/hims/hims/public/css/hims.bundle.css */
+/* ../../../../../../tmp/tmp-21995-Bz8Y45c2MWDo/hims/hims/public/css/hims.bundle.css */
 * {
   font-family: "Poppins", sans-serif;
 }
@@ -296,27 +296,6 @@ select span {
 [data-theme=hims] .desk-sidebar-item.standard-sidebar-item.selected .sidebar-item-icon .icon .es-icon {
   --icon-stroke:var(--active_txt_clr);
 }
-[data-original-title="Toggle Sidebar"] {
-  display: none !important;
-}
-.custom-sidebar-toggle {
-  border: unset;
-  outline: unset;
-  height: 40px;
-  aspect-ratio: 1;
-  border-radius: .5em;
-  font-size: 1.35em;
-  cursor: pointer;
-  margin-left: .75em !important;
-  background: transparent !important;
-}
-.custom-sidebar-toggle:hover {
-  background: whitesmoke !important;
-  color: black !important;
-}
-.w-60px {
-  width: 110px !important;
-}
 [data-theme=hims] .sidebar-item-container .desk-sidebar-item:not(.standard-sidebar-item.selected):hover {
   scale: 0.95;
 }
@@ -440,7 +419,31 @@ select,
 .form-sidebar-stats {
   flex-wrap: wrap !important;
 }
-.list-sidebar.overlay-sidebar {
-  display: none !important;
+.module-icon .icon-xl {
+  --xl: 43px !important;
+  width: var(--xl) !important;
+  height: var(--xl) !important;
 }
-/*# sourceMappingURL=hims.bundle.AKJFHR2M.css.map */
+.w-100px:hover .module-icon {
+  transform: translateY(-10%);
+}
+.w-100px {
+  --size-box:133.5px;
+  height: var(--size-box) !important;
+  width: var(--size-box) !important;
+}
+.text-wrap-custom {
+  text-wrap: nowrap !important;
+  width: 100% !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+}
+.module-icon {
+  height: 100px;
+  width: 100%;
+  vertical-align: middle;
+  padding-top: 1.1em;
+  border-radius: 2em;
+  transition: 250ms ease transform;
+}
+/*# sourceMappingURL=hims.bundle.2XVSRDP5.css.map */
