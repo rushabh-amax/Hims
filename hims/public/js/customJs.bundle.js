@@ -253,10 +253,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // // sidebar remvoe
-
-document.addEventListener("DOMContentLoaded", () => {
-
-
+document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ Pure JS script started");
 
     const module_API_ROUTE = "/api/method/hims.api.login_api.login_with_permissions";
@@ -265,87 +262,132 @@ document.addEventListener("DOMContentLoaded", () => {
         method: "GET",
         credentials: "include",
     })
-    .then(res => res.json())
-    .then(res => {
-        const modules = res.message?.modules || [];
+        .then((res) => res.json())
+        .then((res) => {
+            const modules = res.message?.modules || [];
 
-        if (!Array.isArray(modules) || modules.length === 0) {
-            console.log("⚠️ No modules data from API");
-            return;
-        }
+            if (!Array.isArray(modules) || modules.length === 0) {
+                console.log("⚠️ No modules data from API");
+                return;
+            }
 
-        // Collect parent module routes like "/accounting"
-        const parentRoutes = modules.map(m => m.route?.replace(/^\//, "")); 
-        console.log("✅ Parent Module Routes:", parentRoutes);
+            // Extract parent module routes (e.g., "app/hr", "app/leaves")
+            const parentRoutes = modules.map((m) =>
+                m.route?.replace(/^\//, "") // Remove leading slash
+            );
+            console.log("✅ Parent Module Routes:", parentRoutes);
 
-        function getCurrentRoute() {
-              // remove leading slash, return full path after app/
-              const pathParts = window.location.pathname.split("/").filter(Boolean);
-              if (pathParts[0] === "app") {
-                  return "app/" + pathParts.slice(1).join("/");
-              }
-              return pathParts.join("/");
-          }
+            // Get current route in format: "app/hr", "app/leaves", etc.
+            function getCurrentRoute() {
+                const pathParts = window.location.pathname.split("/").filter(Boolean);
+                if (pathParts[0] === "app") {
+                    return "app/" + pathParts.slice(1).join("/");
+                }
+                return pathParts.join("/") || "/";
+            }
+
+            // Main function to show/hide sidebar
+            function toggleSidebar() {
+                const currentRoute = getCurrentRoute();
+                const side = document.querySelector(".layout-side-section");
+
+                console.log("👉 Current Route:", currentRoute);
+                console.log("👉 Parent Routes:", parentRoutes);
+                console.log("👉 Sidebar element:", side);
+
+                if (!Array.isArray(parentRoutes)) {
+                    console.warn("⚠️ parentRoutes is invalid");
+                    return;
+                }
+
+                if (side) {
+                    if (currentRoute && parentRoutes.includes(currentRoute)) {
+                        side.style.display = "none";
+                        console.log("🛑 Sidebar hidden for parent route:", currentRoute);
+                    } else {
+                        side.style.display = ""; // show (default)
+                        console.log("✅ Sidebar visible for:", currentRoute);
+                    }
+                } else {
+                    console.warn("⚠️ Sidebar element not found");
+                }
+            }
+
+            // Run on initial load
+            toggleSidebar();
+
+            // Handle browser back/forward
+            window.addEventListener("popstate", toggleSidebar);
+
+            // Patch history.pushState to dispatch custom event
+            const originalPushState = history.pushState;
+            history.pushState = function (...args) {
+                originalPushState.apply(this, args);
+                window.dispatchEvent(new Event("pushstate"));
+            };
+
+            // Listen to pushstate
+            window.addEventListener("pushstate", toggleSidebar);
+
+            // Optional: hash-based routing
+            window.addEventListener("hashchange", toggleSidebar);
+
+        })
+        .catch((err) => {
+            console.error("❌ API fetch error:", err);
+        });
+});
 
 
-// function toggleSidebar() {
-//   const currentRoute = getCurrentRoute();
-//   console.log("👉 Current Route:", currentRoute);
-//     console.log("inside fucntion")
+document.addEventListener("DOMContentLoaded", function () {
+    // ✅ Only run if we're on a page where sidebar is hidden
+    const sidebar = document.querySelector(".layout-side-section");
+    const shouldShowBackButton = !sidebar || getComputedStyle(sidebar).display === "none";
 
-//   const side = document.querySelector(".layout-side-section");
-//   console.log(side);
-
-//   if (parentRoutes.includes(currentRoute)) {
-//     if (side) side.style.display = "none";   // or: side.remove();
-//     console.log("🛑 Sidebar hidden for parent route:", currentRoute);
-//   } else {
-//     if (side) side.style.display = "";       // reset to default
-//     console.log("✅ Sidebar visible for child route:", currentRoute);
-//   }
-//   console.log("after if else")
-// }
-
-        // Run once
-        
-function toggleSidebar(currentRoute, parentRoutes = []) {
-    const side = document.querySelector(".layout-side-section");
-    console.log("👉 Sidebar element:", side);
-    console.log("👉 Current Route:", currentRoute);
-    console.log("👉 Parent Routes:", parentRoutes);
-
-    if (!Array.isArray(parentRoutes)) {
-        console.warn("⚠️ parentRoutes is not an array, resetting to []");
-        parentRoutes = [];
+    if (!shouldShowBackButton) {
+        return; // Sidebar is visible → no need for back button
     }
 
-    if (side) {
-        if (currentRoute && parentRoutes.includes(currentRoute)) {
-            // Hide sidebar
-            side.style.display = "none"; // or: side.remove();
-            console.log("🛑 Sidebar hidden for parent route:", currentRoute);
+    // ✅ Find the navbar nav element: d-none d-sm-flex (right side of nav)
+    const targetNav = document.querySelector("nav.navbar-nav.d-none.d-sm-flex");
+
+    if (!targetNav) {
+        console.warn("⚠️ Could not find target navbar (.navbar-nav.d-none.d-sm-flex)");
+        return;
+    }
+
+    // ✅ Create back button
+    const backButtonLi = document.createElement("li");
+    backButtonLi.className = "nav-item";
+
+    const backButton = document.createElement("a");
+    backButton.className = "nav-link pointer";
+    backButton.style = "cursor: pointer; font-weight: 500; padding: 0.5rem 1rem;";
+    backButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 0.3rem;">
+            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l4.147 4.146a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+        </svg>
+        Back
+    `;
+
+    // ✅ Handle click: go to referrer or fallback to /app/modules
+    backButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        const referrer = document.referrer;
+        const fallbackUrl = "/app/modules"; // or "/app" if no modules page
+
+        // Optional: Don't go back to login or blank
+        if (referrer && referrer.includes(window.location.origin) && !referrer.includes("login")) {
+            window.location.href = referrer;
         } else {
-            // Show sidebar again
-            side.style.display = "";
-            console.log("✅ Sidebar visible for child route:", currentRoute);
+            window.location.href = fallbackUrl;
         }
-    } else {
-        console.log("⚠️ Sidebar element not found in DOM.");
-    }
-
-    console.log("✅ after if-else");
-}
-
-
-        // toggleSidebar();
-toggleSidebar(currentRoute, parentRoutes);
-
-        // Listen for navigation changes
-        window.addEventListener("popstate", toggleSidebar);
-        window.addEventListener("pushstate", toggleSidebar);
-        window.addEventListener("hashchange", toggleSidebar);
-    })
-    .catch(err => {
-        console.error("❌ API fetch error:", err);
     });
+
+    backButtonLi.appendChild(backButton);
+
+    // ✅ Inject at the start of the right navbar
+    targetNav.prepend(backButtonLi);
+
+    console.log("✅ Back button injected into navbar");
 });
