@@ -38,6 +38,7 @@ web_include_js = [
     "assets/hims/js/login.bundle.js"
 ]
 
+home_page = "/modules"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/hims/css/hims.css"

@@ -140,7 +140,7 @@
       }
     });
   });
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", function() {
     console.log("\u2705 Pure JS script started");
     const module_API_ROUTE = "/api/method/hims.api.login_api.login_with_permissions";
     fetch(module_API_ROUTE, {
@@ -153,47 +153,90 @@
         console.log("\u26A0\uFE0F No modules data from API");
         return;
       }
-      const parentRoutes = modules.map((m) => {
-        var _a2;
-        return (_a2 = m.route) == null ? void 0 : _a2.replace(/^\//, "");
-      });
+      const parentRoutes = modules.map(
+        (m) => {
+          var _a2;
+          return (_a2 = m.route) == null ? void 0 : _a2.replace(/^\//, "");
+        }
+      );
       console.log("\u2705 Parent Module Routes:", parentRoutes);
       function getCurrentRoute() {
         const pathParts = window.location.pathname.split("/").filter(Boolean);
         if (pathParts[0] === "app") {
           return "app/" + pathParts.slice(1).join("/");
         }
-        return pathParts.join("/");
+        return pathParts.join("/") || "/";
       }
-      function toggleSidebar(currentRoute2, parentRoutes2 = []) {
+      function toggleSidebar() {
+        const currentRoute = getCurrentRoute();
         const side = document.querySelector(".layout-side-section");
+        console.log("\u{1F449} Current Route:", currentRoute);
+        console.log("\u{1F449} Parent Routes:", parentRoutes);
         console.log("\u{1F449} Sidebar element:", side);
-        console.log("\u{1F449} Current Route:", currentRoute2);
-        console.log("\u{1F449} Parent Routes:", parentRoutes2);
-        if (!Array.isArray(parentRoutes2)) {
-          console.warn("\u26A0\uFE0F parentRoutes is not an array, resetting to []");
-          parentRoutes2 = [];
+        if (!Array.isArray(parentRoutes)) {
+          console.warn("\u26A0\uFE0F parentRoutes is invalid");
+          return;
         }
         if (side) {
-          if (currentRoute2 && parentRoutes2.includes(currentRoute2)) {
+          if (currentRoute && parentRoutes.includes(currentRoute)) {
             side.style.display = "none";
-            console.log("\u{1F6D1} Sidebar hidden for parent route:", currentRoute2);
+            console.log("\u{1F6D1} Sidebar hidden for parent route:", currentRoute);
           } else {
             side.style.display = "";
-            console.log("\u2705 Sidebar visible for child route:", currentRoute2);
+            console.log("\u2705 Sidebar visible for:", currentRoute);
           }
         } else {
-          console.log("\u26A0\uFE0F Sidebar element not found in DOM.");
+          console.warn("\u26A0\uFE0F Sidebar element not found");
         }
-        console.log("\u2705 after if-else");
       }
-      toggleSidebar(currentRoute, parentRoutes);
+      toggleSidebar();
       window.addEventListener("popstate", toggleSidebar);
+      const originalPushState = history.pushState;
+      history.pushState = function(...args) {
+        originalPushState.apply(this, args);
+        window.dispatchEvent(new Event("pushstate"));
+      };
       window.addEventListener("pushstate", toggleSidebar);
       window.addEventListener("hashchange", toggleSidebar);
     }).catch((err) => {
       console.error("\u274C API fetch error:", err);
     });
+  });
+  document.addEventListener("DOMContentLoaded", function() {
+    const sidebar = document.querySelector(".layout-side-section");
+    const shouldShowBackButton = !sidebar || getComputedStyle(sidebar).display === "none";
+    if (!shouldShowBackButton) {
+      return;
+    }
+    const targetNav = document.querySelector("nav.navbar-nav.d-none.d-sm-flex");
+    if (!targetNav) {
+      console.warn("\u26A0\uFE0F Could not find target navbar (.navbar-nav.d-none.d-sm-flex)");
+      return;
+    }
+    const backButtonLi = document.createElement("li");
+    backButtonLi.className = "nav-item";
+    const backButton = document.createElement("a");
+    backButton.className = "nav-link pointer";
+    backButton.style = "cursor: pointer; font-weight: 500; padding: 0.5rem 1rem;";
+    backButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 0.3rem;">
+            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l4.147 4.146a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+        </svg>
+        Back
+    `;
+    backButton.addEventListener("click", function(e) {
+      e.preventDefault();
+      const referrer = document.referrer;
+      const fallbackUrl = "/app/modules";
+      if (referrer && referrer.includes(window.location.origin) && !referrer.includes("login")) {
+        window.location.href = referrer;
+      } else {
+        window.location.href = fallbackUrl;
+      }
+    });
+    backButtonLi.appendChild(backButton);
+    targetNav.prepend(backButtonLi);
+    console.log("\u2705 Back button injected into navbar");
   });
 
   // ../hims/hims/public/js/login.bundle.js
@@ -256,4 +299,4 @@
     observer.observe(document.body, { childList: true, subtree: true });
   });
 })();
-//# sourceMappingURL=theme.bundle.ACBXSE32.js.map
+//# sourceMappingURL=theme.bundle.WIBDGPHS.js.map
